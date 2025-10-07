@@ -52,36 +52,23 @@
                     $('#getWeatherBtn').click();
                 }
             });
-            
+
         });
     </script>
-    <!-- Cuaca : <p id="lokasi"></p>
-    <hr>
-    <div id="tampilan"></div>
 
-    <script>
-        const urlapi = "http://api.weatherapi.com/v1/current.json?key=e16211146e6643788dd65546250710&q=yogyakarta&aqi=no";
-        const urlapi2 = "http://api.weatherapi.com/v1/current.json?key=e16211146e6643788dd65546250710&q=Jakarta&aqi=no";
+    <div class="container">
+        <h1>Cuaca</h1>
 
-        $.ajax({
-            url : urlapi,
-            method : "GET",
-            success : function(data){
-                console.log(data);
-                const v = document.getElementById("tampilan");
-                const l = document.getElementById("lokasi");
-                let suhu = data.current.temp_c;
-                let lokasi = data.location.name;
-                v.innerHTML = suhu;
-                l.innerHTML = lokasi;
-            },
-            fail : function(error){
-                console.log(error);
-            },
-        }) -->
+        <div class="search-box">
+            <input type="text" id="locationInput" placeholder="Cari Lokasi (cth: Jakarta)">
+            <button id="getWeatherBtn">Get Weather</button>
+        </div>
+        
+        <hr>
 
         
-    </script>
+    </div>
+
 
 </body>
 </html>
