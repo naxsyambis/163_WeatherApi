@@ -7,8 +7,41 @@
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>"></script>
+    <script>
+        $(document).ready(function() {
+            
+            const apiKey = "e16211146e6643788dd65546250710";
 
-    Cuaca : <p id="lokasi"></p>
+            function fetchWeather(location) {
+                const urlApi = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=no`;
+
+                $.ajax({
+                    url: urlApi,
+                    method: "GET",
+                    success: function(data) {
+                        $('#tempC').text(data.current.temp_c);
+                        $('#tempF').text(data.current.temp_f);
+                        $('#humidity').text(data.current.humidity);
+                        
+                        $('#country').text(data.location.country);
+                        $('#region').text(data.location.region);
+                        $('#name').text(data.location.name);
+                        $('#lon').text(data.location.lon);
+                        $('#lat').text(data.location.lat);
+
+                        $('#resultsWrapper').fadeIn();
+                    },
+                    error: function(error) {
+                        $('#resultsWrapper').fadeOut();
+                        alert("Lokasi tidak ditemukan atau terjadi kesalahan. Silakan coba lagi.");
+                    }
+                });
+            }
+
+            
+        });
+    </script>
+    <!-- Cuaca : <p id="lokasi"></p>
     <hr>
     <div id="tampilan"></div>
 
@@ -31,7 +64,9 @@
             fail : function(error){
                 console.log(error);
             },
-        })
+        }) -->
+
+        
     </script>
 
 </body>
