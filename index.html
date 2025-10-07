@@ -38,6 +38,20 @@
                 });
             }
 
+            $('#getWeatherBtn').on('click', function() {
+                const location = $('#locationInput').val();
+                if (location) {
+                    fetchWeather(location);
+                } else {
+                    alert("Silakan masukkan nama lokasi terlebih dahulu.");
+                }
+            });
+
+            $('#locationInput').on('keypress', function(e) {
+                if (e.which === 13) {
+                    $('#getWeatherBtn').click();
+                }
+            });
             
         });
     </script>
